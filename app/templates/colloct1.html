@@ -1,0 +1,29 @@
+<!-- coding:utf-8 -->
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>北邮人论坛</h1>
+<form action="" method="post" name="col1">
+    {{form.hidden_tag()}}
+    <p><input type="submit" value="编辑帖子"></p>
+    <p>
+        We observe today not a victory of party, but a celebration of freedom, symbolizing an end, as well as a beginning; signifying renewal, as well as change.
+        For I have sworn before you and Almighty God the same solemn oath our forebears prescribed nearly a century and three quarters ago.In your hands, my fellow citizens,
+        more than in mine, will rest the final success or failure of our course. Since this country was founded, each generation of Americans has been summoned to give testimony to its national loyalty.
+        The graves of young Americans who answered the call to service surround the globe.
+    </p>
+    <p>
+        请输入贴子内容（如果结束输入请输/）:<br>
+        {{form.openid(cols=100,rows=10)}}<br>
+    </p>
+</form>
+<div class="container">
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning">
+{{ message }}
+</div>
+{% endfor %}
+{% block page_content %}{% endblock %}
+</div>
+{% endblock %}
